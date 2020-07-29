@@ -21,6 +21,23 @@ public class Palindrome {
      * <p>Результат: true</p>
      */
     public boolean isPalindrome(String text) {
+        if (text.length() == 1 || text.length() == 0) {
+            return false;
+        }
+        text = text.toLowerCase();
+        text = text.replaceAll("[^A-Za-zА-Яа-я0-9]", "");
+        String[] arr = text.split("");
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = arr.length - 1; j >= 0; j--) {
+                if (String.valueOf(arr[i].charAt(i)).equals(String.valueOf(arr[j].charAt(i)))) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
         return false;
     }
 }
+
